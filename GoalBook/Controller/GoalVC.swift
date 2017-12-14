@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class GoalVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GoalVC: UIViewController {
 
     //UIOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -27,25 +28,34 @@ class GoalVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    //TableView functions
+
+}
+
+extension GoalVC: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 16
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell  = tableView.dequeueReusableCell(withIdentifier: "goalCell") as? GoalCell {
-            cell.configureCell(forGoalDescription: "Coding on Xcode by using Swift everyday -- G", withGoalType: "Long-Term", andGolaProgress: 100)
+        guard let cell  = tableView.dequeueReusableCell(withIdentifier: "goalCell") as? GoalCell else { return UITableViewCell() }
+        
+        if (indexPath.row + 1) % 3 == 0 {
+            cell.configureCell(forGoalDescription: "Day off -- G", withGoalType: .longTerm, andGolaProgress: indexPath.row + 1)
             return cell
-        }else {
-            return UITableViewCell()
         }
+        
+        cell.configureCell(forGoalDescription: "Coding on Xcode by using Swift everyday -- G", withGoalType: .longTerm, andGolaProgress: indexPath.row + 1 )
+        
+        return cell
         
     }
 
 }
+
 

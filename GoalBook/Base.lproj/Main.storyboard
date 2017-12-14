@@ -58,6 +58,7 @@
                                         <state key="normal" image="addGoal"/>
                                         <connections>
                                             <action selector="addGoalBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NtT-V4-wDp"/>
+                                            <segue destination="poG-vk-d6b" kind="presentation" id="2kk-gM-z1m"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -114,7 +115,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Coding Everyday." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="uix-gu-61d">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Coding Everyday." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uix-gu-61d">
                                                                     <rect key="frame" x="41.5" y="0.0" width="123" height="19"/>
                                                                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                                                     <nil key="textColor"/>
@@ -192,8 +193,157 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
+        <!--Create GoalVC-->
+        <scene sceneID="gcq-tl-g5j">
+            <objects>
+                <viewController id="poG-vk-d6b" customClass="CreateGoalVC" customModule="GoalBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="of4-XO-kcg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhg-le-pCG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXe-x9-jRM">
+                                        <rect key="frame" x="132.5" y="32" width="110" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9L-nn-4d1">
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                                <color key="textColor" red="0.98905863620000001" green="0.99254454130000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-1L-Ag7">
+                                                <rect key="frame" x="53.5" y="0.0" width="56.5" height="30"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="21"/>
+                                                <color key="textColor" red="0.98905863620000001" green="0.99254454130000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="z5F-pu-fvh"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-c6-snv">
+                                        <rect key="frame" x="8" y="30" width="35" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="2Uy-ct-4bU"/>
+                                            <constraint firstAttribute="height" constant="32" id="Cdt-XW-d7k"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="poG-vk-d6b" eventType="touchUpInside" id="OYf-nk-fze"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AXe-x9-jRM" firstAttribute="centerX" secondItem="hhg-le-pCG" secondAttribute="centerX" id="Frn-DI-MgW"/>
+                                    <constraint firstAttribute="height" constant="70" id="OIR-va-YHL"/>
+                                    <constraint firstItem="F8u-c6-snv" firstAttribute="leading" secondItem="hhg-le-pCG" secondAttribute="leading" constant="8" id="pVa-Zr-M5b"/>
+                                    <constraint firstItem="F8u-c6-snv" firstAttribute="bottom" secondItem="AXe-x9-jRM" secondAttribute="bottom" id="wIE-Th-yAT"/>
+                                    <constraint firstAttribute="bottom" secondItem="AXe-x9-jRM" secondAttribute="bottom" constant="8" id="xBg-nO-VDq"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLp-4t-xAY">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="82v-8f-d9j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextBtnPressed:" destination="poG-vk-d6b" eventType="touchUpInside" id="5lo-Kb-MxL"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Z3l-T2-FxF">
+                                <rect key="frame" x="20" y="95" width="335" height="280"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What is your goal?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlZ-V2-mie">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="214"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="y71-ha-oIr">
+                                        <rect key="frame" x="0.0" y="226" width="335" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHz-Ac-nvc">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                                <color key="textColor" red="0.253886421319797" green="0.253886421319797" blue="0.253886421319797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XE1-Ll-BXD">
+                                                <rect key="frame" x="0.0" y="4" width="335" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWN-IB-ehJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="159.5" height="50"/>
+                                                        <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
+                                                        <state key="normal" title="Short-Term">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="shortTermBtnPressed:" destination="poG-vk-d6b" eventType="touchUpInside" id="Yaa-0H-9TM"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFc-aD-yPW">
+                                                        <rect key="frame" x="175.5" y="0.0" width="159.5" height="50"/>
+                                                        <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
+                                                        <state key="normal" title="Long-Term">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="longTermBtnPressed:" destination="poG-vk-d6b" eventType="touchUpInside" id="caI-Jb-LVO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="5y6-Bg-kJW"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="RUC-9K-Gvl"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mLp-4t-xAY" firstAttribute="bottom" secondItem="IpZ-HM-oYZ" secondAttribute="bottom" id="8o3-bP-tOd"/>
+                            <constraint firstItem="IpZ-HM-oYZ" firstAttribute="trailing" secondItem="Z3l-T2-FxF" secondAttribute="trailing" constant="20" id="InC-bT-Lrt"/>
+                            <constraint firstItem="hhg-le-pCG" firstAttribute="leading" secondItem="IpZ-HM-oYZ" secondAttribute="leading" id="RTH-eZ-SXy"/>
+                            <constraint firstItem="Z3l-T2-FxF" firstAttribute="leading" secondItem="IpZ-HM-oYZ" secondAttribute="leading" constant="20" id="SaL-Y3-JNa"/>
+                            <constraint firstItem="mLp-4t-xAY" firstAttribute="trailing" secondItem="IpZ-HM-oYZ" secondAttribute="trailing" id="XAD-rE-Kqh"/>
+                            <constraint firstItem="hhg-le-pCG" firstAttribute="trailing" secondItem="IpZ-HM-oYZ" secondAttribute="trailing" id="hKG-fd-Tmz"/>
+                            <constraint firstItem="hhg-le-pCG" firstAttribute="top" secondItem="of4-XO-kcg" secondAttribute="top" id="kqM-Dn-MeH"/>
+                            <constraint firstItem="Z3l-T2-FxF" firstAttribute="top" secondItem="hhg-le-pCG" secondAttribute="bottom" constant="25" id="wFt-3a-IHq"/>
+                            <constraint firstItem="mLp-4t-xAY" firstAttribute="leading" secondItem="IpZ-HM-oYZ" secondAttribute="leading" id="yLx-ns-tIj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IpZ-HM-oYZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="goalTextview" destination="tlZ-V2-mie" id="VoK-hN-Yd3"/>
+                        <outlet property="longTermBtn" destination="AFc-aD-yPW" id="txY-sc-fy8"/>
+                        <outlet property="nextBtn" destination="mLp-4t-xAY" id="vHQ-iw-vao"/>
+                        <outlet property="shortTermBtn" destination="CWN-IB-ehJ" id="1GM-Xw-5Xu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4QB-WW-Z6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="118"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addGoal" width="35" height="32"/>
+        <image name="back" width="14" height="25"/>
     </resources>
 </document>
