@@ -20,11 +20,16 @@ class GoalVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.isHidden = false
+        
     }
     
     //UIButtons
     @IBAction func addGoalBtnPressed(_ sender: UIButton) {
-        tableView.isHidden = false
+        
+        guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
+        
+        presentDetail(createGoalVC)
         
     }
     

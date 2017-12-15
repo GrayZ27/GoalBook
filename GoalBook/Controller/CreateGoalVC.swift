@@ -16,24 +16,34 @@ class CreateGoalVC: UIViewController {
     @IBOutlet weak var longTermBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
+    var goalType: GoalType = .shortTerm
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        nextBtn.bindToKeyboard()
+        shortTermBtn.setSelectedAlpha()
+        longTermBtn.setDeselectedAlpha()
         
     }
     
     @IBAction func shortTermBtnPressed(_ sender: UIButton) {
+        goalType = .shortTerm
+        shortTermBtn.setSelectedAlpha()
+        longTermBtn.setDeselectedAlpha()
     }
     
     @IBAction func longTermBtnPressed(_ sender: UIButton) {
+        goalType = .longTerm
+        shortTermBtn.setDeselectedAlpha()
+        longTermBtn.setSelectedAlpha()
     }
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismissDetail()
     }
     
 }

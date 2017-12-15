@@ -21,7 +21,7 @@
         <!--GoalVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GoalVC" customModule="GoalBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalVC" id="BYZ-38-t0r" customClass="GoalVC" customModule="GoalBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,6 @@
                                         <state key="normal" image="addGoal"/>
                                         <connections>
                                             <action selector="addGoalBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NtT-V4-wDp"/>
-                                            <segue destination="poG-vk-d6b" kind="presentation" id="2kk-gM-z1m"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -196,7 +195,7 @@
         <!--Create GoalVC-->
         <scene sceneID="gcq-tl-g5j">
             <objects>
-                <viewController id="poG-vk-d6b" customClass="CreateGoalVC" customModule="GoalBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGoalVC" id="poG-vk-d6b" customClass="CreateGoalVC" customModule="GoalBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="of4-XO-kcg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,7 +246,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLp-4t-xAY">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="82v-8f-d9j"/>
                                 </constraints>
@@ -260,17 +259,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Z3l-T2-FxF">
-                                <rect key="frame" x="20" y="95" width="335" height="280"/>
+                                <rect key="frame" x="20" y="90" width="335" height="250"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What is your goal?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlZ-V2-mie">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="214"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="184"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="y71-ha-oIr">
-                                        <rect key="frame" x="0.0" y="226" width="335" height="54"/>
+                                        <rect key="frame" x="0.0" y="196" width="335" height="54"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHz-Ac-nvc">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
@@ -294,7 +293,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFc-aD-yPW">
                                                         <rect key="frame" x="175.5" y="0.0" width="159.5" height="50"/>
-                                                        <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.50656329310000003" green="0.2275080153" blue="0.3282407228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                                         <state key="normal" title="Long-Term">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -312,7 +311,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="RUC-9K-Gvl"/>
+                                    <constraint firstAttribute="height" constant="250" id="RUC-9K-Gvl"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -325,7 +324,7 @@
                             <constraint firstItem="mLp-4t-xAY" firstAttribute="trailing" secondItem="IpZ-HM-oYZ" secondAttribute="trailing" id="XAD-rE-Kqh"/>
                             <constraint firstItem="hhg-le-pCG" firstAttribute="trailing" secondItem="IpZ-HM-oYZ" secondAttribute="trailing" id="hKG-fd-Tmz"/>
                             <constraint firstItem="hhg-le-pCG" firstAttribute="top" secondItem="of4-XO-kcg" secondAttribute="top" id="kqM-Dn-MeH"/>
-                            <constraint firstItem="Z3l-T2-FxF" firstAttribute="top" secondItem="hhg-le-pCG" secondAttribute="bottom" constant="25" id="wFt-3a-IHq"/>
+                            <constraint firstItem="Z3l-T2-FxF" firstAttribute="top" secondItem="hhg-le-pCG" secondAttribute="bottom" constant="20" id="wFt-3a-IHq"/>
                             <constraint firstItem="mLp-4t-xAY" firstAttribute="leading" secondItem="IpZ-HM-oYZ" secondAttribute="leading" id="yLx-ns-tIj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IpZ-HM-oYZ"/>
