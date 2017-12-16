@@ -9,10 +9,14 @@
 import UIKit
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
 class GoalVC: UIViewController {
 
     //UIOutlets
     @IBOutlet weak var tableView: UITableView!
+    
+    var goals: [Goal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +24,21 @@ class GoalVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.isHidden = false
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetch { (completed) in
+            if completed {
+                if goals.count > 0 {
+                    tableView.isHidden = false
+                }else {
+                    tableView.isHidden = true
+                }
+                
+            }
+        }
+        tableView.reloadData()
     }
     
     //UIButtons
@@ -33,7 +50,6 @@ class GoalVC: UIViewController {
         
     }
     
-
 }
 
 extension GoalVC: UITableViewDelegate, UITableViewDataSource {
@@ -43,24 +59,41 @@ extension GoalVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        return goals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell  = tableView.dequeueReusableCell(withIdentifier: "goalCell") as? GoalCell else { return UITableViewCell() }
         
-        if (indexPath.row + 1) % 3 == 0 {
-            cell.configureCell(forGoalDescription: "Day off -- G", withGoalType: .longTerm, andGolaProgress: indexPath.row + 1)
-            return cell
-        }
-        
-        cell.configureCell(forGoalDescription: "Coding on Xcode by using Swift everyday -- G", withGoalType: .longTerm, andGolaProgress: indexPath.row + 1 )
+        let goal = goals[indexPath.row]
+
+        cell.configureCell(withGoal: goal)
         
         return cell
         
     }
 
+}
+
+//functions to fetch data from CoreData
+extension GoalVC {
+    
+    func fetch(completion: (_ completed: Bool) -> ()) {
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let fecthRequest = NSFetchRequest<Goal>(entityName: "Goal")
+        
+        do {
+            goals = try managedContext.fetch(fecthRequest)
+            completion(true)
+        }catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+            completion(false)
+        }
+        
+    }
+    
 }
 
 
