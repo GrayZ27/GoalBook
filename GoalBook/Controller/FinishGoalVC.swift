@@ -42,11 +42,20 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     @IBAction func createGoalBtnPressed(_ sender: UIButton) {
 
         if goalDaysTxtField.text != "" {
-            save { (completed) in
-                if completed {
-                    guard let goalVC = storyboard?.instantiateViewController(withIdentifier: "GoalVC") else { return }
-                    presentingViewController?.presentSecondaryDetail(goalVC)
+            guard let goalDaysInteger = Int(goalDaysTxtField.text!) else {
+                warningLbl.text = "*Please enter a integer for your goal"
+                return
+                
+            }
+            if goalDaysInteger > 0 {
+                save { (completed) in
+                    if completed {
+                        guard let goalVC = storyboard?.instantiateViewController(withIdentifier: "GoalVC") else { return }
+                        presentingViewController?.presentSecondaryDetail(goalVC)
+                    }
                 }
+            }else {
+                warningLbl.text = "*Please enter the correct days for your goal"
             }
         }else {
             warningLbl.text = "*Please enter the days for your goal"
@@ -69,7 +78,7 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
         goal.goalType = goalType.rawValue
         let goalDays = goalDaysTxtField.text ?? "0"
         goal.goalCompletionValue = Int32(goalDays)!
-        goal.goalProgress = Int32(0)
+        goal.goalProgress = Int32(goalDays)!
         
         do {
             try managedContext.save()
