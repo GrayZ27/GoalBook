@@ -12,17 +12,24 @@ import CoreData
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class GoalVC: UIViewController {
-
+    
     //UIOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var undoBtn: UIButton!
+    @IBOutlet weak var warningView: UIView!
     
     var goals: [Goal] = []
+    var timer = Timer()
+    
+    private var undoCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        undoBtn.isHidden = true
+        warningView.isHidden = true
         
     }
     
@@ -45,12 +52,38 @@ class GoalVC: UIViewController {
         }
     }
     
+    //func to run a timer
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(actionForTimer), userInfo: nil, repeats: false)
+    }
+    
+    @objc func actionForTimer() {
+        warningView.isHidden = true
+    }
+    
+    //func to show undo button
+    func showUndoBtn() {
+        if undoCount > 0 {
+            undoBtn.isHidden = false
+        }else {
+            undoBtn.isHidden = true
+        }
+    }
+    
     //UIButtons
     @IBAction func addGoalBtnPressed(_ sender: UIButton) {
         
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
         
         presentDetail(createGoalVC)
+        
+    }
+    
+    @IBAction func undoRemovedGoal(_ sender: UIButton) {
+        
+        undoRemovedGoal()
+        fetchObjectsFromCoreData()
+        tableView.reloadData()
         
     }
     
@@ -108,6 +141,15 @@ extension GoalVC: UITableViewDelegate, UITableViewDataSource {
         
         return [deleteAction, addAction]
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
+        selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.5065632931, green: 0.2275080153, blue: 0.3282407228, alpha: 0.8987050514)
+        
+        //add a mini view to update the goal-- due tomorrow 12/18
+        
+    }
 
 }
 
@@ -124,6 +166,9 @@ extension GoalVC {
         if chosenGoal.goalProgress > 0 {
             chosenGoal.goalProgress -= 1
         }else {
+            
+            warningView.isHidden = false
+            runTimer()
             return
         }
         
@@ -140,14 +185,34 @@ extension GoalVC {
     func removeGoal(atIndexPath indexPath: IndexPath) {
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-        
+        managedContext.undoManager = undoManager
         managedContext.delete(goals[indexPath.row])
         
         do {
             try managedContext.save()
+            undoCount += 1
+            showUndoBtn()
             //print("Successfully deleted goal")
         }catch {
-            debugPrint("Could not Delete: \(error.localizedDescription)")
+            debugPrint("Could not delete: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    //func to undo a removed goal
+    func undoRemovedGoal() {
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        managedContext.undoManager?.undo()
+        
+        do {
+            try managedContext.save()
+            undoCount -= 1
+            showUndoBtn()
+            //print("Undo a removed goal")
+        }catch {
+            debugPrint("Could not undo: \(error.localizedDescription)")
         }
         
     }
