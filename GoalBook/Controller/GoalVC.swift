@@ -54,7 +54,7 @@ class GoalVC: UIViewController {
     
     //func to run a timer
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(actionForTimer), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(actionForTimer), userInfo: nil, repeats: false)
     }
     
     @objc func actionForTimer() {
@@ -147,7 +147,11 @@ extension GoalVC: UITableViewDelegate, UITableViewDataSource {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
         selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.5065632931, green: 0.2275080153, blue: 0.3282407228, alpha: 0.8987050514)
         
-        //add a mini view to update the goal-- due tomorrow 12/18
+        guard let updateGoalVC = storyboard?.instantiateViewController(withIdentifier: "UpdateGoalVC") as? UpdateGoalVC else { return }
+        
+        updateGoalVC.setGoalIndexPath(indexPath.row)
+        
+        presentDetail(updateGoalVC)
         
     }
 

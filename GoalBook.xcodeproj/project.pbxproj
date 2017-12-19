@@ -13,6 +13,7 @@
 		068C5D2B1FE4743E001ED236 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C5D2A1FE4743E001ED236 /* UIViewControllerExt.swift */; };
 		068C5D2D1FE480A2001ED236 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C5D2C1FE480A2001ED236 /* UIViewExt.swift */; };
 		068C5D2F1FE48365001ED236 /* UIButtonTxt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C5D2E1FE48365001ED236 /* UIButtonTxt.swift */; };
+		06919B701FE8749B00AF3E7C /* UpdateGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06919B6F1FE8749B00AF3E7C /* UpdateGoalVC.swift */; };
 		06C5E4121FD9E1FD00F5180D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5E4111FD9E1FD00F5180D /* AppDelegate.swift */; };
 		06C5E4141FD9E1FD00F5180D /* GoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5E4131FD9E1FD00F5180D /* GoalVC.swift */; };
 		06C5E4171FD9E1FD00F5180D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06C5E4151FD9E1FD00F5180D /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		068C5D2A1FE4743E001ED236 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		068C5D2C1FE480A2001ED236 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		068C5D2E1FE48365001ED236 /* UIButtonTxt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonTxt.swift; sourceTree = "<group>"; };
+		06919B6F1FE8749B00AF3E7C /* UpdateGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGoalVC.swift; sourceTree = "<group>"; };
 		06C5E40E1FD9E1FD00F5180D /* GoalBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C5E4111FD9E1FD00F5180D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06C5E4131FD9E1FD00F5180D /* GoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalVC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				06C5E4131FD9E1FD00F5180D /* GoalVC.swift */,
 				06167B1F1FE325C800395897 /* CreateGoalVC.swift */,
 				0639A0501FE59DDA009C943E /* FinishGoalVC.swift */,
+				06919B6F1FE8749B00AF3E7C /* UpdateGoalVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				06167B1E1FE319F800395897 /* GoalType.swift in Sources */,
 				06C5E4141FD9E1FD00F5180D /* GoalVC.swift in Sources */,
 				068C5D2F1FE48365001ED236 /* UIButtonTxt.swift in Sources */,
+				06919B701FE8749B00AF3E7C /* UpdateGoalVC.swift in Sources */,
 				068C5D2D1FE480A2001ED236 /* UIViewExt.swift in Sources */,
 				06C5E4121FD9E1FD00F5180D /* AppDelegate.swift in Sources */,
 				068C5D2B1FE4743E001ED236 /* UIViewControllerExt.swift in Sources */,
